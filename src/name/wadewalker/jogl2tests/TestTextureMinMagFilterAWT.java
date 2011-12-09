@@ -77,8 +77,8 @@ public class TestTextureMinMagFilterAWT extends UITestCase {
             public void init(GLAutoDrawable drawable) {
                 try {
                     texture = TextureIO.newTexture( inputstreamTexture, true, TextureIO.PNG );
-                    texture.setTexParameteri(GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
-                    texture.setTexParameteri(GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
+                    texture.setTexParameteri(drawable.getGL(), GL.GL_TEXTURE_MIN_FILTER, GL.GL_LINEAR);
+                    texture.setTexParameteri(drawable.getGL(), GL.GL_TEXTURE_MAG_FILTER, GL.GL_LINEAR);
                 }
                 catch(GLException glexception) {
                     glexception.printStackTrace();
@@ -104,7 +104,7 @@ public class TestTextureMinMagFilterAWT extends UITestCase {
             public void dispose(GLAutoDrawable drawable) {
                 GL2 gl = drawable.getGL().getGL2();
                 if(null!=texture) {
-                    texture.disable();
+                    texture.disable(gl);
                     texture.destroy(gl);
                 }
             }
@@ -115,8 +115,8 @@ public class TestTextureMinMagFilterAWT extends UITestCase {
             
                 // Now draw one quad with the texture
                 if(null!=texture) {
-                    texture.enable();
-                    texture.bind();
+                    texture.enable(gl);
+                    texture.bind(gl);
                     gl.glTexEnvi(GL2.GL_TEXTURE_ENV, GL2.GL_TEXTURE_ENV_MODE, GL2.GL_REPLACE);
                     TextureCoords coords = texture.getImageTexCoords();
                     gl.glBegin(GL2.GL_QUADS);
@@ -129,7 +129,7 @@ public class TestTextureMinMagFilterAWT extends UITestCase {
                     gl.glTexCoord2f(coords.left(), coords.top());
                     gl.glVertex3f(0, 1, 0);
                     gl.glEnd();
-                    texture.disable();
+                    texture.disable(gl);
                 }
             }
         });
