@@ -40,7 +40,6 @@ public class TestTextureMinMagFilterAWT extends UITestCase {
 
     @BeforeClass
     public static void initClass() {
-        GLProfile.initSingleton(true);
         glprofile = GLProfile.get(GLProfile.GL2GL3);
         Assert.assertNotNull(glprofile);
         glcapabilities = new GLCapabilities(glprofile);

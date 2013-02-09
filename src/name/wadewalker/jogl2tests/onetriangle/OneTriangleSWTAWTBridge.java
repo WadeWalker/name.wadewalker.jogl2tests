@@ -24,7 +24,7 @@ import javax.media.opengl.awt.GLCanvas;
 public class OneTriangleSWTAWTBridge {
 
     static {
-        GLProfile.initSingleton( false );
+        GLProfile.initSingleton();
     }
 
     public static void main( String [] args ) {

@@ -4,19 +4,19 @@ import javax.media.opengl.GLAutoDrawable;
 import javax.media.opengl.GLEventListener;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.GLCapabilities;
-import javax.media.opengl.awt.GLJPanel;
-import javax.swing.JFrame;
+import javax.media.opengl.awt.GLCanvas;
+import javax.swing.JWindow;
 
 import java.awt.BorderLayout;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * A minimal program that draws with JOGL in a Swing JFrame using the AWT GLJPanel.
+ * A minimal program that draws with JOGL in a Swing JWindow using the AWT GLCanvas.
  *
  * @author Wade Walker
  */
-public class OneTriangleSwingGLJPanel {
+public class OneTriangleSwingGLCanvasJWindow {
 
     static {
         // setting this true causes window events not to get sent on Linux if you run from inside Eclipse
@@ -26,9 +26,9 @@ public class OneTriangleSwingGLJPanel {
     public static void main( String [] args ) {
         GLProfile glprofile = GLProfile.getDefault();
         GLCapabilities glcapabilities = new GLCapabilities( glprofile );
-        GLJPanel gljpanel = new GLJPanel( glcapabilities ); 
+        final GLCanvas glcanvas = new GLCanvas( glcapabilities );
 
-        gljpanel.addGLEventListener( new GLEventListener() {
+        glcanvas.addGLEventListener( new GLEventListener() {
             
             @Override
             public void reshape( GLAutoDrawable glautodrawable, int x, int y, int width, int height ) {
@@ -49,16 +49,17 @@ public class OneTriangleSwingGLJPanel {
             }
         });
 
-        final JFrame jframe = new JFrame( "One Triangle Swing GLJPanel" ); 
-        jframe.addWindowListener( new WindowAdapter() {
+        // "One Triangle Swing GLCanvas JWindow" 
+        final JWindow jwindow = new JWindow(); 
+        jwindow.addWindowListener( new WindowAdapter() {
             public void windowClosing( WindowEvent windowevent ) {
-                jframe.dispose();
+                jwindow.dispose();
                 System.exit( 0 );
             }
         });
 
-        jframe.getContentPane().add( gljpanel, BorderLayout.CENTER );
-        jframe.setSize( 640, 480 );
-        jframe.setVisible( true );
+        jwindow.getContentPane().add( glcanvas, BorderLayout.CENTER );
+        jwindow.setSize( 640, 480 );
+        jwindow.setVisible( true );
     }
 }

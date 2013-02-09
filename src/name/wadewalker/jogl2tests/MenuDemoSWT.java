@@ -25,7 +25,6 @@ import javax.media.opengl.glu.GLU;
 public class MenuDemoSWT {
 
     public static void main(String [] args) {
-        GLProfile.initSingleton( true );
         Display display = new Display();
 		final Shell shell = new Shell( display );
 		shell.setLayout( new FillLayout() );

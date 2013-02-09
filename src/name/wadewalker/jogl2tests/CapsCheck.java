@@ -19,10 +19,9 @@ import javax.media.opengl.awt.GLCanvas;
 
 import com.jogamp.opengl.JoglVersion;
 
+@SuppressWarnings("deprecation")
 public class CapsCheck {
-    public static void main(String[] args) { 
-        GLProfile.initSingleton(true); 
-        
+	public static void main(String[] args) { 
         System.err.println(JoglVersion.getInstance());
         
         GLCapabilities caps = new GLCapabilities(GLProfile.get(GLProfile.GL2)); 

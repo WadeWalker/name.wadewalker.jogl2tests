@@ -20,7 +20,7 @@ public class OneTriangleSwingGLCanvas {
 
     static {
         // setting this true causes window events not to get sent on Linux if you run from inside Eclipse
-        GLProfile.initSingleton( false );
+        GLProfile.initSingleton();
     }
 
     public static void main( String [] args ) {
