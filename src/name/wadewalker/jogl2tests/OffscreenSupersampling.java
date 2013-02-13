@@ -16,7 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-
+@SuppressWarnings({ "serial", "deprecation" })
 public class OffscreenSupersampling extends JFrame implements GLEventListener
 {        
     GLPbuffer offScreenBuffer;
@@ -41,7 +41,7 @@ public class OffscreenSupersampling extends JFrame implements GLEventListener
         
         GLDrawableFactory fac = GLDrawableFactory.getFactory(glp);
         
-        boolean  d = fac.canCreateGLPbuffer(GLProfile.getDefaultDesktopDevice());
+//        boolean  d = fac.canCreateGLPbuffer(GLProfile.getDefaultDevice());
         
         GLCapabilities glCap = new GLCapabilities(glp);
         
@@ -55,7 +55,7 @@ public class OffscreenSupersampling extends JFrame implements GLEventListener
         glCap.setStencilBits(1);
                                      
         //makes a new buffer
-        offScreenBuffer = fac.createGLPbuffer(GLProfile.getDefaultDesktopDevice(), glCap, null, width, height, null);
+        offScreenBuffer = fac.createGLPbuffer(GLProfile.getDefaultDevice(), glCap, null, width, height, null);
         offScreenBuffer.addGLEventListener(this);        
         offScreenBuffer.display();
     }

@@ -4,6 +4,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.internal.win32.OS;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.opengl.GLCanvas;
 import org.eclipse.swt.opengl.GLData;
@@ -26,7 +27,7 @@ public class OneTriangleSWTGDCDenial {
 
     static {
         // setting this true causes window events not to get sent on Linux if you run from inside Eclipse
-        GLProfile.initSingleton( false );
+        GLProfile.initSingleton();
     }
 
     public static void main( String [] args ) {
@@ -60,7 +61,11 @@ public class OneTriangleSWTGDCDenial {
         shell2.open();
         shell2.redraw();
 
+        
+        long hDC = OS.GetDC( glcanvas.handle ); 
         final GLContext glcontext = GLDrawableFactory.getFactory( glprofile ).createExternalGLContext();
+        OS.ReleaseDC(glcanvas.handle, hDC); 
+
 
         // fix the viewport when the user resizes the window
         glcanvas.addListener( SWT.Resize, new Listener() {

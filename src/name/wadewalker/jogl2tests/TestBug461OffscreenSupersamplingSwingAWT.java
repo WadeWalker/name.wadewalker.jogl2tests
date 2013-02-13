@@ -54,6 +54,7 @@ import com.jogamp.opengl.test.junit.util.UITestCase;
  *
  * @author Wade Walker (from code sample provided by Owen Dimond)
  */
+@SuppressWarnings("deprecation")
 public class TestBug461OffscreenSupersamplingSwingAWT extends UITestCase implements GLEventListener {
 	JFrame jframe;
 	GLPbuffer offScreenBuffer;
@@ -115,7 +116,7 @@ public class TestBug461OffscreenSupersamplingSwingAWT extends UITestCase impleme
         GLDrawableFactory fac = GLDrawableFactory.getFactory(glp);
         Assert.assertNotNull(fac);
         
-        Assert.assertTrue( fac.canCreateGLPbuffer(GLProfile.getDefaultDesktopDevice()) );
+        Assert.assertTrue( fac.canCreateGLPbuffer(GLProfile.getDefaultDevice()) );
         
         GLCapabilities glCap = new GLCapabilities(glp);
         Assert.assertNotNull(glCap);
@@ -130,7 +131,7 @@ public class TestBug461OffscreenSupersamplingSwingAWT extends UITestCase impleme
         glCap.setStencilBits(1);
 
         //makes a new buffer
-        offScreenBuffer = fac.createGLPbuffer(GLProfile.getDefaultDesktopDevice(), glCap, null, 200, 200, null);
+        offScreenBuffer = fac.createGLPbuffer(GLProfile.getDefaultDevice(), glCap, null, 200, 200, null);
         Assert.assertNotNull(offScreenBuffer);
         offScreenBuffer.addGLEventListener(this);        
         offScreenBuffer.display();
