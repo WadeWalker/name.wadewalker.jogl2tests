@@ -1,0 +1,3 @@
+grep -c ADD.F shader.txt
+grep -c MUL.F shader.txt
+grep -c MAD.F shader.txt

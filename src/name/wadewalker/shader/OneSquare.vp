@@ -1,0 +1,17 @@
+#version 110
+
+#ifdef GL_ES
+  precision mediump float;
+  precision mediump int;
+#endif
+
+attribute vec4 vColor;
+attribute vec4 vVertex;
+
+varying vec4 fragColor;
+
+void main(void) {
+    fragColor = vColor;
+    gl_Position = vVertex;
+}
+
