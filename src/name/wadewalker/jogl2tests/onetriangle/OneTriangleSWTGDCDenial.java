@@ -4,7 +4,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.PaintEvent;
 import org.eclipse.swt.events.PaintListener;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.internal.win32.OS;
+//import org.eclipse.swt.internal.win32.OS;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.opengl.GLCanvas;
 import org.eclipse.swt.opengl.GLData;
@@ -61,10 +61,10 @@ public class OneTriangleSWTGDCDenial {
         shell2.open();
         shell2.redraw();
 
-        
-        long hDC = OS.GetDC( glcanvas.handle ); 
+// comment these lines in for test -- only compiles on Win32
+//        long hDC = OS.GetDC( glcanvas.handle ); 
         final GLContext glcontext = GLDrawableFactory.getFactory( glprofile ).createExternalGLContext();
-        OS.ReleaseDC(glcanvas.handle, hDC); 
+//        OS.ReleaseDC(glcanvas.handle, hDC); 
 
 
         // fix the viewport when the user resizes the window
