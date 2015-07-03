@@ -1,8 +1,8 @@
 package name.wadewalker.jogl2tests.onetriangle;
 
-import javax.media.opengl.GL;
-import javax.media.opengl.GL2;
-import javax.media.opengl.glu.GLU;
+import com.jogamp.opengl.GL;
+import com.jogamp.opengl.GL2;
+import com.jogamp.opengl.glu.GLU;
 
 public class OneTriangle {
     protected static void setup( GL2 gl2, int width, int height ) {

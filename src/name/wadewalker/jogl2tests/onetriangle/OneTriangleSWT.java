@@ -13,9 +13,9 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 
-import javax.media.opengl.GLProfile;
-import javax.media.opengl.GLContext;
-import javax.media.opengl.GLDrawableFactory;
+import com.jogamp.opengl.GLProfile;
+import com.jogamp.opengl.GLContext;
+import com.jogamp.opengl.GLDrawableFactory;
 
 /**
  * A minimal program that draws with JOGL in an SWT Composite.

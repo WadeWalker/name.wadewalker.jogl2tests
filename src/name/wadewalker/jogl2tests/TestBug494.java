@@ -3,9 +3,9 @@ package name.wadewalker.jogl2tests;
 import javax.swing.*;
 import java.awt.*;
 import com.jogamp.opengl.util.gl2.*;
-import javax.media.opengl.awt.GLCanvas;
-import javax.media.opengl.*;
-import javax.media.opengl.glu.*;
+import com.jogamp.opengl.awt.GLCanvas;
+import com.jogamp.opengl.*;
+import com.jogamp.opengl.glu.*;
 /**
  * @author  Bill Clark
  */
